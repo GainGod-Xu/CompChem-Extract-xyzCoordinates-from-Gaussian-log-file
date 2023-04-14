@@ -1,8 +1,8 @@
 #!/gsfs1/data1/xuhq/Python3/bin/python3
 # -*- coding: iso-8859-15 -*-
 import os,math,sys,time
-from gxyz_hao import ext_exact
-from gxyz_hao import ext_all
+from gxyz import ext_exact
+from gxyz import ext_all
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -98,9 +98,9 @@ def readxyz(input_file):
              ###reaction path changes#   
              if data[0]=='Beginning' and data[1] == 'calculation' and data[4]=='REVERSE':
                 frames.reverse()
-
-    return frames
     ifs.close()
+    return frames
+    
 
 def ext_energy():
     ifs = open(input_file, 'r')
@@ -157,41 +157,6 @@ def pr_energy(energies):
     plt.savefig(out_file)
     plt.close()
 
-def gwxyzcom(ifs_name):
-    com_name=ifs_name[:-4] + '_sp.com'
-    chk_name=ifs_name[:-4] + '_sp.chk'
-    ifs = open(ifs_name,'r')
-
-    xyz_cor=[]
-    for line in ifs.readlines()[2:]:
-        xyz_cor.append(line)
-    ifs.close()
-
-    com = open(com_name,'w')
-    com.write('%mem=180gb \n')
-    com.write('%nprocshared=40 \n')
-    com.write('%chk=' + chk_name + '\n')
-    com.write('#p b3lyp/gen  Stable=Opt  ' +' \n')
-    com.write('\n')
-    com.write('comment  \n')
-    com.write('\n')
-    com.write('0 2 \n')
-
-    ##wirte xyz##
-    for line in xyz_cor:
-        com.write(str(line))
-    com.write('\n')
-
-    ### your gen basis set
-    com.write('C N O H Na Cl 0\n')
-    com.write('6-311G*\n')
-    com.write('****\n')
-    com.write('Co 0\n')
-    com.write('def2svp\n')
-    com.write('****\n')
-    com.write('\n')
-    com.close()
-
 
 ####Entry: main function#######
 if __name__ == "__main__":
@@ -221,7 +186,7 @@ if __name__ == "__main__":
       ext_all(input_file,frames)
       for n in range(len(frames)):
           xyz_file = ext_exact(input_file,frames,n)
-          gwxyzcom(xyz_file)
+          ###gwxyzcom(xyz_file)
 
    else:
       print('Well Done on there!') 

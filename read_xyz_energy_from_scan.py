@@ -4,13 +4,12 @@
 
 
 import os,math,sys,time
-from gxyz_hao import readxyz
-from gxyz_hao import ext_exact
-from gxyzcom_func import gwxyzcom
+from gxyz import readxyz
+from gxyz import ext_exact
+###from gxyzcom_func import gwxyzcom
 
 #import numpy as np
-#import matplotlib.pyplot as plt
-#
+import matplotlib.pyplot as plt
 
 def ext_energy():
     ifs = open(input_file, 'r')
@@ -21,12 +20,7 @@ def ext_energy():
     step_number=[]
     frames_opt=[]
     i=-1
-#    lines=ifs.readline()
-#    for line in lines:
-#        data=line.split()
-#        if len(data)>4: # if true, line is not blank
-#           if data[4]=='Scan': # define scan variable
-#              bond_ids=data[2]
+
     while 1:
           line=ifs.readline()
           if not line: break
@@ -102,7 +96,7 @@ if __name__ == "__main__":
    frames=readxyz(input_file)
    x,y,z=ext_energy()
    write_scan_energy(x,y)
-#   pr_energy(x,y)
+   pr_energy(x,y)
    print('*****************************************************************************')
    print('The lenth of frames is ' + str(len(z)))
    job_type = int(input('if you want ts xyz file, please type 1 (for only 1 frame)or 100(for all frames); otherwise, type 0\n')) 
@@ -110,7 +104,7 @@ if __name__ == "__main__":
    if job_type:
       n = int(input('which frame do you want on there?\n')) -1
       xyz_file = ext_exact(input_file,z,n)
-      gwxyzcom(xyz_file)
+      ###gwxyzcom(xyz_file)
    else:
       pass
 

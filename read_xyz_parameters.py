@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os,math,sys
-from gxyzcom_func import gwxyzcom
+
+### if you want to import gwxyzcom function
+### from gxyzcom_func import gwxyzcom
 
 def readxyz(input_file):
     ifs = open(input_file, 'r')
@@ -97,8 +99,9 @@ def ext_lf(frames):
     ofs.write(str(len(frame)) + '\n\n')
     for i in frame:
         ofs.write('%2s' % str(i[1]) + ' ' +  '%15.8f' % float(i[2]) + ' ' + '%15.8f' % float(i[3]) + ' ' + '%15.8f' % float(i[4]) + '\n')
-    return ofs_name
     ofs.close()
+    return ofs_name
+    
 
 
 def ext_exact(input_file,frames,n):
@@ -151,7 +154,7 @@ if __name__ == "__main__":
    print('\n')
    if jt:
       xyz_name = ext_lf(readxyz(input_file))
-      gwxyzcom(xyz_name)
+      ###gwxyzcom(xyz_name)
    else:
       force_ext(input_file)
       frames=readxyz(input_file)
@@ -160,7 +163,7 @@ if __name__ == "__main__":
       n = int(input('which frame do you want on there? If not, type 0\n')) -1
       if (n+1):
          xyz_name = ext_exact(input_file,frames,n)
-         gwxyzcom(xyz_name)
+         ###gwxyzcom(xyz_name)
       else:
          print('Thanks for checking results on there!')
    print('**********************************************\n\n\n')
