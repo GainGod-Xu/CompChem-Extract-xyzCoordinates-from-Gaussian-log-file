@@ -1,8 +1,8 @@
 # CompChem-Extract-xyzCoordinates-from-Gaussian-log-file
-1. Make the python scripts excutable:  
+## 1. Make the python scripts excutable:  
 chmod +x *.py 
 
-2. The usage of python scripts:
+## 2. The usage of python scripts:  
 (1) Read xyz and optization/TS searching parameters from calculation:   
 read_xyz_parameters.py molecule_A.log  
 
