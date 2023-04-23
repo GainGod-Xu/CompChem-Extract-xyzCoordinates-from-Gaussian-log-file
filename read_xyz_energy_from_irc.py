@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 import os,math,sys,time
 from read_xyz_parameters import ext_exact
 from read_xyz_parameters import ext_all

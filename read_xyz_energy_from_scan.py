@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-
 # -*- coding: iso-8859-15 -*-
 
-
 import os,math,sys,time
-from gxyz import readxyz
-from gxyz import ext_exact
+from read_xyz_parameters import readxyz
+from read_xyz_parameters import ext_exact
 ###from gxyzcom_func import gwxyzcom
-
-#import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
 
 def ext_energy():
