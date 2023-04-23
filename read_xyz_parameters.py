@@ -133,17 +133,18 @@ def force_ext(input_file):
     for line in ifs.readlines():
         data=line.split()
         if len(data)>4: # if true, line is not blank
-           if data[0]== 'Maximum' and data[1]== 'Force':
+           if data[0]== "Maximum" and data[1]== "Force":
               print('********************************************')
-              print(  str(n_f) + '   Frame:')
+              print( str(n_f) + '   Frame:')
               print(str(data[0]) +'   ' +str(data[1]) + '          '+ str(data[2]) + '   ' + str(data[4]))
-           if data[0]== 'RMS' and data[1]== 'Force':
+           if data[0]== "RMS" and data[1]== "Force":
               print(str(data[0]) +'       ' +str(data[1]) + '          '+ str(data[2]) + '   ' + str(data[4])   )
-           if data[0]== 'Maximum' and data[1]== 'Displacement':
-              print(str(data[0]) +'   ' +str(data[1]) + '   '+ str(data[2]) + '   ' + str(data[4])   )
-           if data[0]== 'RMS' and data[1]== 'Displacement':
-              print(str(data[0]) +'       ' +str(data[1]) + '   '+ str(data[2]) + '   ' + str(data[4])   )
+           if data[0]== "Maximum" and data[1]== "Displacement":
+              print(str(data[0]) +'   ' +str(data[1]) + '   '+ str(data[2]) + '   ' + str(data[4]))
+           if data[0]== "RMS" and data[1]== "Displacement":
+              print(str(data[0]) +'       ' +str(data[1]) + '   '+ str(data[2]) + '   ' + str(data[4]))
               n_f+=1
+    ifs.close()
 
 
 
@@ -152,7 +153,7 @@ if __name__ == "__main__":
    print('**********************************************\n\n')
    jt = input('If you want last xyz, please type 1; if you want specific frame, please type 0\n')
    print('\n')
-   if jt:
+   if jt == 1:
       xyz_name = ext_lf(readxyz(input_file))
       ###gwxyzcom(xyz_name)
    else:
