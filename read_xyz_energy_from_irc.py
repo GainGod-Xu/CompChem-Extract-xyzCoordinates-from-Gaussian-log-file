@@ -128,7 +128,7 @@ def ext_energy():
     return energies
 
 def write_irc_energy(energies):
-    out_file = input_file[:-4]+'.irc_energy' # your output file
+    out_file = input_file[:-4]+'.energy' # your output file
     ofs = open(out_file, 'w')
     l=1
     for i in energies:
@@ -149,7 +149,7 @@ def pr_energy(energies):
     delta_E=[]
     for i in energies:
         delta_E.append(float(627.51*(i-energies[0])))
-    out_file = input_file[:-4]+'_irc.png'
+    out_file = input_file[:-4]+'.png'
     plt.figure('Draw')
     plt.plot(delta_E)
     plt.draw()

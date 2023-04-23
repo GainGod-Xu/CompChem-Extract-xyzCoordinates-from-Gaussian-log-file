@@ -64,7 +64,7 @@ def ext_energy():
     return scan_dist, energies, frames_opt
 
 def write_scan_energy(scan_dist, energies):
-    out_file = input_file[:-4]+'.scan_energy' # your output file
+    out_file = input_file[:-4]+'.energy' # your output file
     ofs = open(out_file, 'w')
     k=0
     l=1
@@ -79,7 +79,7 @@ def pr_energy(scan_dist,energies):
     delta_E=[]
     for i in energies:
         delta_E.append(float(627.51*(i-energies[0])))
-    out_file = input_file[:-4]+'_BE.png'
+    out_file = input_file[:-4]+'.png'
     plt.figure('Draw')
     plt.plot(scan_dist,delta_E)
     plt.draw()
