@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: iso-8859-15 -*-
 import os,math,sys,time
-from gxyz import ext_exact
-from gxyz import ext_all
+from read_xyz_parameters import ext_exact
+from read_xyz_parameters import ext_all
 import numpy as np
 import matplotlib.pyplot as plt
 
