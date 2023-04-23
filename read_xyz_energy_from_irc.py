@@ -1,4 +1,4 @@
-#!/gsfs1/data1/xuhq/Python3/bin/python3
+#!/usr/bin/python3
 # -*- coding: iso-8859-15 -*-
 import os,math,sys,time
 from gxyz import ext_exact
